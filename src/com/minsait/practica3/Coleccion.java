@@ -46,13 +46,14 @@ public class Coleccion {
         /**
          * Mostrar en consola el título de los 3 cursos con mayor duración.
          */
-        //List<Curso> ordenadaPorDuracion = cursos.stream().sorted(Comparator.comparing(Curso::getDuracion)).collect(Collectors.toList());
-    	//ordenadaPorDuracion.forEach(c->System.out.println(" - " + c.getTitulo() + " (" + c.getDuracion() + " hrs.)"));
-        Curso[] ordenadaPorDuracion = cursos.stream().sorted(Comparator.comparing(Curso::getDuracion)).toArray(Curso[]::new);
         System.out.println("Los 3 cursos con mas duracion:");
+        List<Curso> ordenadaPorDuracion = cursos.stream().sorted(Comparator.comparing(Curso::getDuracion).reversed()).limit(3).collect(Collectors.toList());
+        ordenadaPorDuracion.forEach(c->System.out.println(" - " + c.getTitulo() + " (" + c.getDuracion() + " hrs.)"));
+    	/*
+        Curso[] ordenadaPorDuracion = cursos.stream().sorted(Comparator.comparing(Curso::getDuracion)).toArray(Curso[]::new);
         for (int i = ordenadaPorDuracion.length - 3; i< ordenadaPorDuracion.length;i++)
         	System.out.println(" - " + ordenadaPorDuracion[i].getTitulo() + " (" + ordenadaPorDuracion[i].getDuracion() + " hrs.)");
-        
+        */
         /**
          * Mostrar en consola la duración total de todos los cursos.
          */
